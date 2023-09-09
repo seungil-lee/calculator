@@ -26,6 +26,18 @@ pipeline {
 		        sh "./gradlew jacocoTestCoverageVerification"
 		    }
 		}
-
+		stage("Static code analysis") {
+			steps {
+   		    	sh "./gradlew checkstyleMain"
+   		    	publishHTML (target: [
+					allowMissing: false,
+					alwaysLinkToLastBuild: true,
+					keepAll: true,
+		        	reportDir: "/var/jenkins_home/workspace/calculator/build/reports/checkstyle/",
+		        	reportFiles: "main.html",
+		        	reportName: "Checkstyle Report"  
+		        ])
+   			}
+		}
 	}
 }
