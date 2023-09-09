@@ -19,7 +19,7 @@ pipeline {
 					allowMissing: false,
 					alwaysLinkToLastBuild: true,
 					keepAll: true,
-		        	reportDir: "reports",
+		        	reportDir: "/var/jenkins_home/workspace/calculator/build/reports/jacoco/test/html",
 		        	reportFiles: "index.html",
 		        	reportName: "JaCoCo Report"  
 		        ])
